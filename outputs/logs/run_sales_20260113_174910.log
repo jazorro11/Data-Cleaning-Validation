@@ -1,0 +1,21 @@
+2026-01-13 17:49:10,639 | INFO | Starting run_id=sales_20260113_174910 input=/mnt/data/upwork-data-cleaning-pack/data/sample_sales_raw.csv dataset=sales
+2026-01-13 17:49:10,643 | INFO | Loaded 125 rows from /mnt/data/upwork-data-cleaning-pack/data/sample_sales_raw.csv
+2026-01-13 17:49:10,644 | INFO | Cleaning dataset=sales, rows=125, cols=10
+2026-01-13 17:49:10,651 | INFO | Parsed dates in order_date: success_rate=20.8% (dayfirst=10.4% monthfirst=20.8%)
+2026-01-13 17:49:10,653 | INFO | Coerced numeric order_id: na_rate 0.0% -> 0.0%
+2026-01-13 17:49:10,654 | INFO | Coerced numeric customer_id: na_rate 0.0% -> 0.0%
+2026-01-13 17:49:10,655 | INFO | Coerced numeric qty: na_rate 0.0% -> 0.0%
+2026-01-13 17:49:10,657 | INFO | Coerced numeric unit_price: na_rate 2.4% -> 2.4%
+2026-01-13 17:49:10,658 | INFO | Coerced numeric revenue: na_rate 0.0% -> 0.0%
+2026-01-13 17:49:10,659 | INFO | Deduplicated on ['order_id']: dropped=5
+2026-01-13 17:49:10,659 | INFO | Running 6 validation rules for dataset=sales
+2026-01-13 17:49:10,663 | INFO | Rule S001_qty_positive: status=FAIL, failed=2
+2026-01-13 17:49:10,665 | INFO | Rule S002_unit_price_reasonable: status=FAIL, failed=5
+2026-01-13 17:49:10,667 | INFO | Rule S003_order_date_present: status=FAIL, failed=94
+2026-01-13 17:49:10,669 | INFO | Rule S004_revenue_consistency: status=FAIL, failed=14
+2026-01-13 17:49:10,671 | INFO | Rule S005_region_not_null: status=FAIL, failed=1
+2026-01-13 17:49:10,671 | INFO | Rule S006_order_id_unique: status=PASS, failed=0
+2026-01-13 17:49:10,676 | INFO | Wrote 120 rows to /mnt/data/upwork-data-cleaning-pack/outputs/clean/sales_clean_sales_20260113_174910.csv
+2026-01-13 17:49:10,759 | INFO | Wrote report: /mnt/data/upwork-data-cleaning-pack/outputs/reports/sales_dq_report_sales_20260113_174910.md and /mnt/data/upwork-data-cleaning-pack/outputs/reports/sales_dq_report_sales_20260113_174910.html
+2026-01-13 17:49:10,759 | INFO | Finished run_id=sales_20260113_174910 in 0.12s
+2026-01-13 17:49:10,759 | INFO | Outputs: clean=/mnt/data/upwork-data-cleaning-pack/outputs/clean/sales_clean_sales_20260113_174910.csv report_md=/mnt/data/upwork-data-cleaning-pack/outputs/reports/sales_dq_report_sales_20260113_174910.md report_html=/mnt/data/upwork-data-cleaning-pack/outputs/reports/sales_dq_report_sales_20260113_174910.html log=/mnt/data/upwork-data-cleaning-pack/outputs/logs/run_sales_20260113_174910.log

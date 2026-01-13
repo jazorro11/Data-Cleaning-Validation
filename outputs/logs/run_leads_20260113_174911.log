@@ -1,0 +1,17 @@
+2026-01-13 17:49:11,931 | INFO | Starting run_id=leads_20260113_174911 input=/mnt/data/upwork-data-cleaning-pack/data/sample_leads_raw.csv dataset=leads
+2026-01-13 17:49:11,935 | INFO | Loaded 94 rows from /mnt/data/upwork-data-cleaning-pack/data/sample_leads_raw.csv
+2026-01-13 17:49:11,935 | INFO | Cleaning dataset=leads, rows=94, cols=9
+2026-01-13 17:49:11,943 | INFO | Parsed dates in created_at: success_rate=40.4% (dayfirst=40.4% monthfirst=40.4%)
+2026-01-13 17:49:11,945 | INFO | Coerced numeric lead_id: na_rate 0.0% -> 0.0%
+2026-01-13 17:49:11,946 | INFO | Coerced numeric score: na_rate 4.3% -> 4.3%
+2026-01-13 17:49:11,947 | INFO | Deduplicated on ['lead_id']: dropped=4
+2026-01-13 17:49:11,948 | INFO | Running 5 validation rules for dataset=leads
+2026-01-13 17:49:11,950 | INFO | Rule L001_email_format: status=FAIL, failed=12
+2026-01-13 17:49:11,952 | INFO | Rule L002_phone_length: status=FAIL, failed=8
+2026-01-13 17:49:11,954 | INFO | Rule L003_created_at_valid: status=FAIL, failed=54
+2026-01-13 17:49:11,956 | INFO | Rule L004_score_range: status=FAIL, failed=12
+2026-01-13 17:49:11,956 | INFO | Rule L005_lead_id_unique: status=PASS, failed=0
+2026-01-13 17:49:11,958 | INFO | Wrote 90 rows to /mnt/data/upwork-data-cleaning-pack/outputs/clean/leads_clean_leads_20260113_174911.csv
+2026-01-13 17:49:12,020 | INFO | Wrote report: /mnt/data/upwork-data-cleaning-pack/outputs/reports/leads_dq_report_leads_20260113_174911.md and /mnt/data/upwork-data-cleaning-pack/outputs/reports/leads_dq_report_leads_20260113_174911.html
+2026-01-13 17:49:12,020 | INFO | Finished run_id=leads_20260113_174911 in 0.09s
+2026-01-13 17:49:12,021 | INFO | Outputs: clean=/mnt/data/upwork-data-cleaning-pack/outputs/clean/leads_clean_leads_20260113_174911.csv report_md=/mnt/data/upwork-data-cleaning-pack/outputs/reports/leads_dq_report_leads_20260113_174911.md report_html=/mnt/data/upwork-data-cleaning-pack/outputs/reports/leads_dq_report_leads_20260113_174911.html log=/mnt/data/upwork-data-cleaning-pack/outputs/logs/run_leads_20260113_174911.log

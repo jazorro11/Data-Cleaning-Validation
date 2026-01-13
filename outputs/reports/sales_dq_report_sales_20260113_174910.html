@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Quality Report — sales</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 24px; line-height: 1.45; }
+h1,h2,h3,h4 { margin-top: 1.2em; }
+code, pre { background: #f6f8fa; padding: 2px 4px; border-radius: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+th, td { border: 1px solid #e5e7eb; padding: 8px; font-size: 13px; vertical-align: top; }
+th { background: #f3f4f6; text-align: left; }
+.badge-pass { color: #065f46; font-weight: 600; }
+.badge-fail { color: #991b1b; font-weight: 600; }
+.small { color: #6b7280; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>Data Quality Report — sales</h1>
+<p class="small">Run ID: <code>sales_20260113_174910</code> • Generated: 2026-01-13T17:49:10</p>
+
+<h2>Run metadata</h2>
+<ul>
+<li><b>dataset</b>: sales</li><li><b>run_id</b>: sales_20260113_174910</li><li><b>generated_at</b>: 2026-01-13T17:49:10</li><li><b>raw_rows</b>: 125</li><li><b>clean_rows</b>: 120</li><li><b>raw_cols</b>: 10</li><li><b>clean_cols</b>: 10</li><li><b>failed_rules</b>: 5</li><li><b>total_rules</b>: 6</li>
+</ul>
+
+<h2>Validation results</h2>
+<table>
+<thead><tr><th>Rule</th><th>Severity</th><th>Status</th><th>Failed</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>S001_qty_positive</code></td><td>error</td><td class=badge-fail>FAIL</td><td>2</td><td>qty must be >= 1</td></tr><tr><td><code>S002_unit_price_reasonable</code></td><td>error</td><td class=badge-fail>FAIL</td><td>5</td><td>unit_price must be between 1,000 and 200,000</td></tr><tr><td><code>S003_order_date_present</code></td><td>error</td><td class=badge-fail>FAIL</td><td>94</td><td>order_date must be a valid parsed date</td></tr><tr><td><code>S004_revenue_consistency</code></td><td>warn</td><td class=badge-fail>FAIL</td><td>14</td><td>revenue should equal qty * unit_price (tolerance 1 peso)</td></tr><tr><td><code>S005_region_not_null</code></td><td>warn</td><td class=badge-fail>FAIL</td><td>1</td><td>region must not be null</td></tr><tr><td><code>S006_order_id_unique</code></td><td>error</td><td class=badge-pass>PASS</td><td>0</td><td>order_id must be unique after cleaning</td></tr>
+</tbody>
+</table>
+
+<h3>Failed samples (up to 5 rows per rule)</h3>
+<h4><code>S001_qty_positive</code> — qty must be >= 1 (error)</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>order_id</th>
+      <th>customer_id</th>
+      <th>region</th>
+      <th>channel</th>
+      <th>product</th>
+      <th>qty</th>
+      <th>unit_price</th>
+      <th>revenue</th>
+      <th>order_date</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1016</td>
+      <td>29</td>
+      <td>Oeste</td>
+      <td>web</td>
+      <td>Café Tradicional</td>
+      <td>-1</td>
+      <td>9900.0</td>
+      <td>9900.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1109</td>
+      <td>6</td>
+      <td>Norte</td>
+      <td>retail</td>
+      <td>Café Tradicional</td>
+      <td>-1</td>
+      <td>18000.0</td>
+      <td>72000.0</td>
+      <td>2025-07-20</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table><h4><code>S002_unit_price_reasonable</code> — unit_price must be between 1,000 and 200,000 (error)</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>order_id</th>
+      <th>customer_id</th>
+      <th>region</th>
+      <th>channel</th>
+      <th>product</th>
+      <th>qty</th>
+      <th>unit_price</th>
+      <th>revenue</th>
+      <th>order_date</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1004</td>
+      <td>5</td>
+      <td>Oeste</td>
+      <td>partner</td>
+      <td>Café Premium</td>
+      <td>7</td>
+      <td>NaN</td>
+      <td>122500.0</td>
+      <td>2025-04-12</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1018</td>
+      <td>49</td>
+      <td>Bogotá</td>
+      <td>web</td>
+      <td>Café Premium</td>
+      <td>6</td>
+      <td>NaN</td>
+      <td>72000.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1035</td>
+      <td>14</td>
+      <td>Este</td>
+      <td>retail</td>
+      <td>Cafe Premium</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>70000.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1062</td>
+      <td>6</td>
+      <td>Este</td>
+      <td>partner</td>
+      <td>Cafe Premium</td>
+      <td>1</td>
+      <td>9999999.0</td>
+      <td>0.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1105</td>
+      <td>15</td>
+      <td>Oeste</td>
+      <td>partner</td>
+      <td>Café Premium</td>
+      <td>1</td>
+      <td>9999999.0</td>
+      <td>12000.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table><h4><code>S003_order_date_present</code> — order_date must be a valid parsed date (error)</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>order_id</th>
+      <th>customer_id</th>
+      <th>region</th>
+      <th>channel</th>
+      <th>product</th>
+      <th>qty</th>
+      <th>unit_price</th>
+      <th>revenue</th>
+      <th>order_date</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1002</td>
+      <td>26</td>
+      <td>Norte</td>
+      <td>partner</td>
+      <td>Cafe Premium</td>
+      <td>4</td>
+      <td>15500.0</td>
+      <td>62000.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1003</td>
+      <td>39</td>
+      <td>Oeste</td>
+      <td>partner</td>
+      <td>Café Tradicional</td>
+      <td>4</td>
+      <td>9900.0</td>
+      <td>39600.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1005</td>
+      <td>9</td>
+      <td>Centro</td>
+      <td>retail</td>
+      <td>Cafe Premium</td>
+      <td>1</td>
+      <td>17500.0</td>
+      <td>17500.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1006</td>
+      <td>34</td>
+      <td>Centro</td>
+      <td>web</td>
+      <td>Café Premium</td>
+      <td>3</td>
+      <td>9900.0</td>
+      <td>29700.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1007</td>
+      <td>27</td>
+      <td>Norte</td>
+      <td>retail</td>
+      <td>Café Tradicional</td>
+      <td>7</td>
+      <td>18000.0</td>
+      <td>126000.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table><h4><code>S004_revenue_consistency</code> — revenue should equal qty * unit_price (tolerance 1 peso) (warn)</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>order_id</th>
+      <th>customer_id</th>
+      <th>region</th>
+      <th>channel</th>
+      <th>product</th>
+      <th>qty</th>
+      <th>unit_price</th>
+      <th>revenue</th>
+      <th>order_date</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1016</td>
+      <td>29</td>
+      <td>Oeste</td>
+      <td>web</td>
+      <td>Café Tradicional</td>
+      <td>-1</td>
+      <td>9900.0</td>
+      <td>9900.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1024</td>
+      <td>30</td>
+      <td>Este</td>
+      <td>partner</td>
+      <td>Café Premium</td>
+      <td>3</td>
+      <td>12000.0</td>
+      <td>36.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1029</td>
+      <td>1</td>
+      <td>Centro</td>
+      <td>partner</td>
+      <td>Café Tradicional</td>
+      <td>5</td>
+      <td>9900.0</td>
+      <td>49.5</td>
+      <td>2025-04-23</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1030</td>
+      <td>7</td>
+      <td>Oeste</td>
+      <td>web</td>
+      <td>Café Tradicional</td>
+      <td>5</td>
+      <td>12000.0</td>
+      <td>0.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1032</td>
+      <td>34</td>
+      <td>Norte</td>
+      <td>retail</td>
+      <td>Café Tradicional</td>
+      <td>6</td>
+      <td>12000.0</td>
+      <td>0.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table><h4><code>S005_region_not_null</code> — region must not be null (warn)</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>order_id</th>
+      <th>customer_id</th>
+      <th>region</th>
+      <th>channel</th>
+      <th>product</th>
+      <th>qty</th>
+      <th>unit_price</th>
+      <th>revenue</th>
+      <th>order_date</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1050</td>
+      <td>49</td>
+      <td>None</td>
+      <td>retail</td>
+      <td>Cafe Tradicional</td>
+      <td>4</td>
+      <td>9900.0</td>
+      <td>39600.0</td>
+      <td>NaT</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Column profile (raw)</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>column</th>
+      <th>dtype</th>
+      <th>null_rate</th>
+      <th>distinct</th>
+      <th>sample_values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>notes</td>
+      <td>string</td>
+      <td>0.968</td>
+      <td>2</td>
+      <td>Revisar, urgente, urgente</td>
+    </tr>
+    <tr>
+      <td>order_date</td>
+      <td>datetime64[ns]</td>
+      <td>0.792</td>
+      <td>25</td>
+      <td>2025-02-01, 2025-09-19, 2025-04-12</td>
+    </tr>
+    <tr>
+      <td>unit_price</td>
+      <td>Float64</td>
+      <td>0.024</td>
+      <td>6</td>
+      <td>17500.0, 18000.0, 15500.0</td>
+    </tr>
+    <tr>
+      <td>region</td>
+      <td>string</td>
+      <td>0.016</td>
+      <td>6</td>
+      <td>Centro, Norte, Norte</td>
+    </tr>
+    <tr>
+      <td>channel</td>
+      <td>string</td>
+      <td>0.000</td>
+      <td>3</td>
+      <td>web, web, partner</td>
+    </tr>
+    <tr>
+      <td>product</td>
+      <td>string</td>
+      <td>0.000</td>
+      <td>4</td>
+      <td>Cafe Premium, Cafe Tradicional, Cafe Premium</td>
+    </tr>
+    <tr>
+      <td>qty</td>
+      <td>Int64</td>
+      <td>0.000</td>
+      <td>8</td>
+      <td>4, 6, 4</td>
+    </tr>
+    <tr>
+      <td>revenue</td>
+      <td>Float64</td>
+      <td>0.000</td>
+      <td>36</td>
+      <td>70000.0, 108000.0, 62000.0</td>
+    </tr>
+    <tr>
+      <td>customer_id</td>
+      <td>Int64</td>
+      <td>0.000</td>
+      <td>46</td>
+      <td>5, 10, 26</td>
+    </tr>
+    <tr>
+      <td>order_id</td>
+      <td>Int64</td>
+      <td>0.000</td>
+      <td>120</td>
+      <td>1000, 1001, 1002</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Column profile (clean)</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>column</th>
+      <th>dtype</th>
+      <th>null_rate</th>
+      <th>distinct</th>
+      <th>sample_values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>notes</td>
+      <td>string</td>
+      <td>0.966667</td>
+      <td>2</td>
+      <td>Revisar, urgente, urgente</td>
+    </tr>
+    <tr>
+      <td>order_date</td>
+      <td>datetime64[ns]</td>
+      <td>0.783333</td>
+      <td>25</td>
+      <td>2025-02-01, 2025-09-19, 2025-04-12</td>
+    </tr>
+    <tr>
+      <td>unit_price</td>
+      <td>Float64</td>
+      <td>0.025000</td>
+      <td>6</td>
+      <td>17500.0, 18000.0, 15500.0</td>
+    </tr>
+    <tr>
+      <td>region</td>
+      <td>string</td>
+      <td>0.008333</td>
+      <td>6</td>
+      <td>Centro, Norte, Norte</td>
+    </tr>
+    <tr>
+      <td>channel</td>
+      <td>string</td>
+      <td>0.000000</td>
+      <td>3</td>
+      <td>web, web, partner</td>
+    </tr>
+    <tr>
+      <td>product</td>
+      <td>string</td>
+      <td>0.000000</td>
+      <td>4</td>
+      <td>Cafe Premium, Cafe Tradicional, Cafe Premium</td>
+    </tr>
+    <tr>
+      <td>qty</td>
+      <td>Int64</td>
+      <td>0.000000</td>
+      <td>8</td>
+      <td>4, 6, 4</td>
+    </tr>
+    <tr>
+      <td>revenue</td>
+      <td>Float64</td>
+      <td>0.000000</td>
+      <td>36</td>
+      <td>70000.0, 108000.0, 62000.0</td>
+    </tr>
+    <tr>
+      <td>customer_id</td>
+      <td>Int64</td>
+      <td>0.000000</td>
+      <td>46</td>
+      <td>5, 10, 26</td>
+    </tr>
+    <tr>
+      <td>order_id</td>
+      <td>Int64</td>
+      <td>0.000000</td>
+      <td>120</td>
+      <td>1000, 1001, 1002</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Artifacts</h2>
+<ul>
+<li>Raw input: <code>/mnt/data/upwork-data-cleaning-pack/data/sample_sales_raw.csv</code></li>
+<li>Clean output: <code>/mnt/data/upwork-data-cleaning-pack/outputs/clean/sales_clean_sales_20260113_174910.csv</code></li>
+<li>Log: <code>outputs/logs/run_sales_20260113_174910.log</code></li>
+</ul>
+</body>
+</html>
