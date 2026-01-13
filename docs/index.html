@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Quality Report — leads</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 24px; line-height: 1.45; }
+h1,h2,h3,h4 { margin-top: 1.2em; }
+code, pre { background: #f6f8fa; padding: 2px 4px; border-radius: 4px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+th, td { border: 1px solid #e5e7eb; padding: 8px; font-size: 13px; vertical-align: top; }
+th { background: #f3f4f6; text-align: left; }
+.badge-pass { color: #065f46; font-weight: 600; }
+.badge-fail { color: #991b1b; font-weight: 600; }
+.small { color: #6b7280; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>Data Quality Report — leads</h1>
+<p class="small">Run ID: <code>leads_20260113_174911</code> • Generated: 2026-01-13T17:49:11</p>
+
+<h2>Run metadata</h2>
+<ul>
+<li><b>dataset</b>: leads</li><li><b>run_id</b>: leads_20260113_174911</li><li><b>generated_at</b>: 2026-01-13T17:49:11</li><li><b>raw_rows</b>: 94</li><li><b>clean_rows</b>: 90</li><li><b>raw_cols</b>: 9</li><li><b>clean_cols</b>: 9</li><li><b>failed_rules</b>: 4</li><li><b>total_rules</b>: 5</li>
+</ul>
+
+<h2>Validation results</h2>
+<table>
+<thead><tr><th>Rule</th><th>Severity</th><th>Status</th><th>Failed</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>L001_email_format</code></td><td>error</td><td class=badge-fail>FAIL</td><td>12</td><td>email must be valid format</td></tr><tr><td><code>L002_phone_length</code></td><td>warn</td><td class=badge-fail>FAIL</td><td>8</td><td>phone must have 10 digits (Colombia mobile standard)</td></tr><tr><td><code>L003_created_at_valid</code></td><td>error</td><td class=badge-fail>FAIL</td><td>54</td><td>created_at must be a valid parsed date</td></tr><tr><td><code>L004_score_range</code></td><td>warn</td><td class=badge-fail>FAIL</td><td>12</td><td>score must be between 0 and 100</td></tr><tr><td><code>L005_lead_id_unique</code></td><td>error</td><td class=badge-pass>PASS</td><td>0</td><td>lead_id must be unique after cleaning</td></tr>
+</tbody>
+</table>
+
+<h3>Failed samples (up to 5 rows per rule)</h3>
+<h4><code>L001_email_format</code> — email must be valid format (error)</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>lead_id</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>source</th>
+      <th>status</th>
+      <th>created_at</th>
+      <th>city</th>
+      <th>score</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5003</td>
+      <td>voqkrugmail.com</td>
+      <td>3724949433</td>
+      <td>referral</td>
+      <td>won</td>
+      <td>2025-08-07</td>
+      <td>Bogota</td>
+      <td>36.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5019</td>
+      <td>None</td>
+      <td>3984601105</td>
+      <td>referral</td>
+      <td>contacted</td>
+      <td>NaT</td>
+      <td>Medellín</td>
+      <td>93.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5023</td>
+      <td>baxcayexample.com</td>
+      <td>3110629467</td>
+      <td>referral</td>
+      <td>contacted</td>
+      <td>NaT</td>
+      <td>Bogotá</td>
+      <td>64.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5048</td>
+      <td>nioecrgmail.com</td>
+      <td>3846007560</td>
+      <td>google ads</td>
+      <td>won</td>
+      <td>2025-10-28</td>
+      <td>Bogotá</td>
+      <td>109.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5053</td>
+      <td>qsznklempresa.co</td>
+      <td>3539239997</td>
+      <td>referral</td>
+      <td>won</td>
+      <td>NaT</td>
+      <td>Barranquilla</td>
+      <td>19.0</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table><h4><code>L002_phone_length</code> — phone must have 10 digits (Colombia mobile standard) (warn)</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>lead_id</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>source</th>
+      <th>status</th>
+      <th>created_at</th>
+      <th>city</th>
+      <th>score</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5005</td>
+      <td>czxqqk@example.com</td>
+      <td>33164681</td>
+      <td>google ads</td>
+      <td>new</td>
+      <td>2025-12-03</td>
+      <td>Barranquilla</td>
+      <td>46.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5008</td>
+      <td>zehvtz@empresa.co</td>
+      <td>30047125</td>
+      <td>facebook</td>
+      <td>lost</td>
+      <td>2025-11-03</td>
+      <td>Barranquilla</td>
+      <td>96.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5011</td>
+      <td>bcqgwl@example.com</td>
+      <td>32629773</td>
+      <td>facebook</td>
+      <td>contacted</td>
+      <td>2025-08-20</td>
+      <td>Medellin</td>
+      <td>67.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5050</td>
+      <td>xeqkis@mail.com</td>
+      <td>32585382</td>
+      <td>facebook</td>
+      <td>won</td>
+      <td>NaT</td>
+      <td>Cartagena</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5056</td>
+      <td>gjkhfr@gmail.com</td>
+      <td>35709781</td>
+      <td>google ads</td>
+      <td>new</td>
+      <td>NaT</td>
+      <td>Bogota</td>
+      <td>14.0</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table><h4><code>L003_created_at_valid</code> — created_at must be a valid parsed date (error)</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>lead_id</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>source</th>
+      <th>status</th>
+      <th>created_at</th>
+      <th>city</th>
+      <th>score</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5002</td>
+      <td>eybqgf@mail.com</td>
+      <td>3995610627</td>
+      <td>web</td>
+      <td>new</td>
+      <td>NaT</td>
+      <td>Bogotá</td>
+      <td>92.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5004</td>
+      <td>mrwjnl@gmail.com</td>
+      <td>3120166143</td>
+      <td>google ads</td>
+      <td>new</td>
+      <td>NaT</td>
+      <td>Barranquilla</td>
+      <td>56.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5009</td>
+      <td>zizgkb@gmail.com</td>
+      <td>3221928085</td>
+      <td>web</td>
+      <td>contacted</td>
+      <td>NaT</td>
+      <td>Bogota</td>
+      <td>26.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5010</td>
+      <td>aybjcy@empresa.co</td>
+      <td>3657026580</td>
+      <td>facebook</td>
+      <td>contacted</td>
+      <td>NaT</td>
+      <td>Bogota</td>
+      <td>42.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5012</td>
+      <td>rkwnju@gmail.com</td>
+      <td>3709640259</td>
+      <td>web</td>
+      <td>new</td>
+      <td>NaT</td>
+      <td>Medellin</td>
+      <td>95.0</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table><h4><code>L004_score_range</code> — score must be between 0 and 100 (warn)</h4><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>lead_id</th>
+      <th>email</th>
+      <th>phone</th>
+      <th>source</th>
+      <th>status</th>
+      <th>created_at</th>
+      <th>city</th>
+      <th>score</th>
+      <th>notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5020</td>
+      <td>cubxsl@example.com</td>
+      <td>3490512099</td>
+      <td>referral</td>
+      <td>contacted</td>
+      <td>NaT</td>
+      <td>Medellín</td>
+      <td>NaN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5027</td>
+      <td>gdudrs@example.com</td>
+      <td>3172943936</td>
+      <td>google ads</td>
+      <td>new</td>
+      <td>NaT</td>
+      <td>Barranquilla</td>
+      <td>109.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5033</td>
+      <td>lcuxsw@gmail.com</td>
+      <td>3798097434</td>
+      <td>referral</td>
+      <td>contacted</td>
+      <td>NaT</td>
+      <td>Bogotá</td>
+      <td>107.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5034</td>
+      <td>usyxqk@empresa.co</td>
+      <td>3319132488</td>
+      <td>referral</td>
+      <td>won</td>
+      <td>NaT</td>
+      <td>Cartagena</td>
+      <td>102.0</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>5048</td>
+      <td>nioecrgmail.com</td>
+      <td>3846007560</td>
+      <td>google ads</td>
+      <td>won</td>
+      <td>2025-10-28</td>
+      <td>Bogotá</td>
+      <td>109.0</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Column profile (raw)</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>column</th>
+      <th>dtype</th>
+      <th>null_rate</th>
+      <th>distinct</th>
+      <th>sample_values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>notes</td>
+      <td>string</td>
+      <td>1.000000</td>
+      <td>0</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>datetime64[ns]</td>
+      <td>0.595745</td>
+      <td>33</td>
+      <td>2025-12-15, 2025-09-02, 2025-08-07</td>
+    </tr>
+    <tr>
+      <td>score</td>
+      <td>Float64</td>
+      <td>0.042553</td>
+      <td>59</td>
+      <td>22.0, 33.0, 92.0</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>string</td>
+      <td>0.042553</td>
+      <td>86</td>
+      <td>qiarft@empresa.co, vqdnlv@mail.com, eybqgf@mail.com</td>
+    </tr>
+    <tr>
+      <td>source</td>
+      <td>string</td>
+      <td>0.000000</td>
+      <td>4</td>
+      <td>facebook, facebook, web</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>string</td>
+      <td>0.000000</td>
+      <td>4</td>
+      <td>won, lost, new</td>
+    </tr>
+    <tr>
+      <td>city</td>
+      <td>string</td>
+      <td>0.000000</td>
+      <td>7</td>
+      <td>Barranquilla, Bogotá, Bogotá</td>
+    </tr>
+    <tr>
+      <td>lead_id</td>
+      <td>Int64</td>
+      <td>0.000000</td>
+      <td>90</td>
+      <td>5000, 5001, 5002</td>
+    </tr>
+    <tr>
+      <td>phone</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>90</td>
+      <td>3711505280, 3835456547, 3995610627</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Column profile (clean)</h2>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>column</th>
+      <th>dtype</th>
+      <th>null_rate</th>
+      <th>distinct</th>
+      <th>sample_values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>notes</td>
+      <td>string</td>
+      <td>1.000000</td>
+      <td>0</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>datetime64[ns]</td>
+      <td>0.600000</td>
+      <td>33</td>
+      <td>2025-12-15, 2025-09-02, 2025-08-07</td>
+    </tr>
+    <tr>
+      <td>score</td>
+      <td>Float64</td>
+      <td>0.044444</td>
+      <td>59</td>
+      <td>22.0, 33.0, 92.0</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>string</td>
+      <td>0.044444</td>
+      <td>86</td>
+      <td>qiarft@empresa.co, vqdnlv@mail.com, eybqgf@mail.com</td>
+    </tr>
+    <tr>
+      <td>source</td>
+      <td>string</td>
+      <td>0.000000</td>
+      <td>4</td>
+      <td>facebook, facebook, web</td>
+    </tr>
+    <tr>
+      <td>status</td>
+      <td>string</td>
+      <td>0.000000</td>
+      <td>4</td>
+      <td>won, lost, new</td>
+    </tr>
+    <tr>
+      <td>city</td>
+      <td>string</td>
+      <td>0.000000</td>
+      <td>7</td>
+      <td>Barranquilla, Bogotá, Bogotá</td>
+    </tr>
+    <tr>
+      <td>lead_id</td>
+      <td>Int64</td>
+      <td>0.000000</td>
+      <td>90</td>
+      <td>5000, 5001, 5002</td>
+    </tr>
+    <tr>
+      <td>phone</td>
+      <td>object</td>
+      <td>0.000000</td>
+      <td>90</td>
+      <td>3711505280, 3835456547, 3995610627</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Artifacts</h2>
+<ul>
+<li>Raw input: <code>/mnt/data/upwork-data-cleaning-pack/data/sample_leads_raw.csv</code></li>
+<li>Clean output: <code>/mnt/data/upwork-data-cleaning-pack/outputs/clean/leads_clean_leads_20260113_174911.csv</code></li>
+<li>Log: <code>outputs/logs/run_leads_20260113_174911.log</code></li>
+</ul>
+</body>
+</html>
