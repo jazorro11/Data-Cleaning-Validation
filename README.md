@@ -63,5 +63,6 @@ Leads:
 - score between 0 and 100
 - lead_id uniqueness
 
-## License
-MIT 
+## Visualizations
+![Leads monthly by status](outputs/plots/leads_monthly_by_status.png)
+![Sales monthly revenue](outputs/plots/sales_monthly_revenue.png)

@@ -1,0 +1,103 @@
+###############################################################################
+# Python Data Cleaning & Validation Pack - .gitignore
+# Goal:
+# - Keep outputs/reports/ tracked in Git as portfolio evidence (HTML/MD reports).
+# - Ignore everything else that is environment-specific or generated locally.
+# - Optimized for VS Code workflows.
+###############################################################################
+
+# ---------------------------------------------------------------------------
+# Python bytecode / caches
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ---------------------------------------------------------------------------
+# Virtual environments
+# ---------------------------------------------------------------------------
+.venv/
+venv/
+env/
+ENV/
+.ENV/
+
+# ---------------------------------------------------------------------------
+# Python packaging / build artifacts
+# ---------------------------------------------------------------------------
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ---------------------------------------------------------------------------
+# Test / coverage artifacts
+# ---------------------------------------------------------------------------
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.tox/
+.nox/
+
+# ---------------------------------------------------------------------------
+# Jupyter / notebooks
+# ---------------------------------------------------------------------------
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# VS Code (keep settings optional)
+# ---------------------------------------------------------------------------
+.vscode/
+# If you want to keep shared workspace settings in the repo, comment the line
+# above and use these instead:
+# .vscode/*
+# !.vscode/settings.json
+# !.vscode/extensions.json
+# !.vscode/launch.json
+# !.vscode/tasks.json
+
+# ---------------------------------------------------------------------------
+# OS-specific files
+# ---------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# ---------------------------------------------------------------------------
+# Logs / temp files
+# ---------------------------------------------------------------------------
+*.log
+*.tmp
+*.temp
+
+# ---------------------------------------------------------------------------
+# Project outputs
+# ---------------------------------------------------------------------------
+# Ignore everything under outputs/ ...
+outputs/**
+
+# ... but keep the data quality reports as portfolio evidence
+!outputs/reports/
+!outputs/reports/**
+
+# Optional: if you want to keep a placeholder file for empty folders
+# (not required, but useful if Git complains about missing dirs)
+# !outputs/reports/.gitkeep
+
+# ---------------------------------------------------------------------------
+# Data
+# ---------------------------------------------------------------------------
+# Keep demo/sample CSVs tracked for reproducibility.
+# If you later add private data, ignore it explicitly:
+# data/private/
+# data/*_private.csv
