@@ -84,7 +84,10 @@ $RECYCLE.BIN/
 # Project outputs
 # ---------------------------------------------------------------------------
 # Ignore everything under outputs/ ...
-outputs/**
+#outputs/**
+
+# Only ignore execution logs (they are noisy and change every run)
+outputs/logs/
 
 # ... but keep the data quality reports as portfolio evidence
 !outputs/reports/
