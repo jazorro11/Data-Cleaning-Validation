@@ -63,15 +63,5 @@ Leads:
 - score between 0 and 100
 - lead_id uniqueness
 
-## Portfolio notes (Upwork)
-Suggested screenshots:
-- Open the HTML report and capture:
-  1) the **Validation results** table
-  2) a **Failed samples** section with examples
-
-Suggested hosting:
-- Repo: GitHub
-- Optional: publish the HTML report via **GitHub Pages** (static hosting)
-
 ## License
 MIT (for portfolio use)
