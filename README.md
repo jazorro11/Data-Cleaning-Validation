@@ -1,4 +1,4 @@
-# Data Cleaning & Validation Pack (Portfolio Demo)
+# Data Cleaning & Validation Pack 
 
 ## Business case (why this matters)
 Teams lose time and credibility when reports are built on inconsistent spreadsheets: duplicated IDs, invalid dates, missing values, and mismatched totals. This demo shows a lightweight **data-quality pipeline** that:
@@ -64,4 +64,4 @@ Leads:
 - lead_id uniqueness
 
 ## License
-MIT (for portfolio use)
+MIT 
